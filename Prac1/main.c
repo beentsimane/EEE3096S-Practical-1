@@ -102,6 +102,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // TODO: Start timer TIM16
+
   HAL_TIM_Base_Start_IT(&htim16);
 
   /* USER CODE END 2 */
@@ -116,7 +117,7 @@ int main(void)
 
     // TODO: Check pushbuttons to change timer delay
 
-    // Checks if pushbutton 0 is pressed
+	  // Checks if pushbutton 0 is pressed
 	  if (HAL_GPIO_ReadPin(Button0_GPIO_Port,Button0_Pin) == GPIO_PIN_RESET){
 		  period = 500;
 		  __HAL_TIM_SET_AUTORELOAD(&htim16, period - 1);
@@ -135,8 +136,6 @@ int main(void)
 	  if (HAL_GPIO_ReadPin(Button3_GPIO_Port,Button3_Pin) == GPIO_PIN_RESET){
 		  GPIOB->ODR = bitpattern1;
 	  }
-
-    
 
   }
   /* USER CODE END 3 */
@@ -358,6 +357,63 @@ void TIM16_IRQHandler(void)
 
 	// TODO: Change LED pattern
 	// print something
+
+	switch(pattern){
+
+	    case 1:{
+	      GPIOB->ODR = bitpattern1;
+	      pattern++;
+	      break;
+	    }
+
+	    case 2:{
+	      GPIOB->ODR = bitpattern2;
+	      pattern++;
+	      break;
+	    }
+
+	    case 3:{
+	      GPIOB->ODR = bitpattern3;
+	      pattern++;
+	      break;
+	    }
+
+	    case 4:{
+	      GPIOB->ODR = bitpattern4;
+	      pattern++;
+	      break;
+	    }
+
+	    case 5:{
+	      GPIOB->ODR = bitpattern5;
+	      pattern++;
+	      break;
+	    }
+
+	    case 6:{
+	      GPIOB->ODR = bitpattern6;
+	      pattern++;
+	      break;
+	    }
+
+	    case 7:{
+	      GPIOB->ODR = bitpattern7;
+	      pattern++;
+	      break;
+	    }
+
+	    case 8:{
+	      GPIOB->ODR = bitpattern8;
+	      pattern++;
+	      break;
+	    }
+
+	    case 9:{
+	      GPIOB->ODR = bitpattern9;
+	      pattern = 1; // wrapping the loop
+	      break;
+	    }
+	  }
 
   
 }
