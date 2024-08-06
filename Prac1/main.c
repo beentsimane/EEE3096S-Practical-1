@@ -119,22 +119,23 @@ int main(void)
 
 	  // Checks if pushbutton 0 is pressed
 	  if (HAL_GPIO_ReadPin(Button0_GPIO_Port,Button0_Pin) == GPIO_PIN_RESET){
-		  period = 500;
-		  __HAL_TIM_SET_AUTORELOAD(&htim16, period - 1);
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 500 - 1);
+		  continue;
 	  }
 	  // Checks if pushbutton 1 is pressed
 	  if (HAL_GPIO_ReadPin(Button1_GPIO_Port,Button1_Pin) == GPIO_PIN_RESET){
-		  period = 2000;
-		  __HAL_TIM_SET_AUTORELOAD(&htim16, period - 1);
+		  __HAL_TIM_SET_AUTORELOAD(&htim16, 2000 - 1);
+		  continue;
 	  }
 	  // Checks if pushbutton 2 is pressed
 	  if (HAL_GPIO_ReadPin(Button2_GPIO_Port,Button2_Pin) == GPIO_PIN_RESET){
-	  	  period = 1000;
-	  	__HAL_TIM_SET_AUTORELOAD(&htim16, period - 1);
+	  	__HAL_TIM_SET_AUTORELOAD(&htim16, 1000 - 1);
+	  	continue;
 	  }
 	  // Checks if pushbutton 3 is pressed
 	  if (HAL_GPIO_ReadPin(Button3_GPIO_Port,Button3_Pin) == GPIO_PIN_RESET){
 		  GPIOB->ODR = bitpattern1;
+		  pattern = 1;
 	  }
 
   }
