@@ -102,7 +102,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // TODO: Start timer TIM16
-
+  HAL_TIM_Base_Start_IT(&htim16);
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
