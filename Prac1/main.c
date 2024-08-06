@@ -44,7 +44,18 @@ TIM_HandleTypeDef htim16;
 
 /* USER CODE BEGIN PV */
 // TODO: Define input variables
+uint8_t pattern = 1; //
+uint8_t bitpattern1= 0b11101001;
+uint8_t bitpattern2= 0b11010010;
+uint8_t bitpattern3= 0b10100100;
+uint8_t bitpattern4= 0b01001000;
+uint8_t bitpattern5= 0b10010000;
+uint8_t bitpattern6= 0b00100000;
+uint8_t bitpattern7= 0b01000000;
+uint8_t bitpattern8= 0b10000000;
+uint8_t bitpattern9= 0b00000000;
 
+unsigned period;
 
 /* USER CODE END PV */
 
