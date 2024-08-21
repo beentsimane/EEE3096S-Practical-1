@@ -115,7 +115,7 @@ HAL_TIM_OC_Start(&htim2, TIM_CHANNEL_1);
 __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, TIM2_Ticks);
 
   // TODO: Start DMA in IT mode on TIM2->CH1; Source is LUT and Dest is TIM3->CCR3; start with Sine LUT
-
+HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t)&Sin_LUT, DestAddress, NS) ;
 
   // TODO: Write current waveform to LCD ("Sine")
   delay(3000);
