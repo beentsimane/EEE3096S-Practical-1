@@ -121,11 +121,11 @@ HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t)&Sin_LUT, DestAddress, NS) ;
   init_LCD();
       lcd_command(CLEAR);
       lcd_putstring("Sine");
-      
+
   delay(3000);
 
   // TODO: Enable DMA (start transfer from LUT to CCR)
-
+ __HAL_TIM_ENABLE_DMA(&htim2, TIM_DMA_CC1);
 
   /* USER CODE END 2 */
 
