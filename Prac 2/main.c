@@ -351,10 +351,12 @@ static void MX_GPIO_Init(void)
 void EXTI0_1_IRQHandler(void)
 {
 	// TODO: Debounce using HAL_GetTick()
+    uint32_t currentInterrupt = HAL_GetTick();
 
 
 	// TODO: Disable DMA transfer and abort IT, then start DMA in IT mode with new LUT and re-enable transfer
 	// HINT: Consider using C's "switch" function to handle LUT changes
+    static uint32_t lastInterrupt = 0;
 
 	if (currentInterrupt - lastInterrupt > 500){ // delay of 500ms
 		//__HAL_DMA_DISABLE(&hdma_tim2_ch1);       // Disable DMA channel
