@@ -118,6 +118,10 @@ __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, TIM2_Ticks);
 HAL_DMA_Start_IT(&hdma_tim2_ch1, (uint32_t)&Sin_LUT, DestAddress, NS) ;
 
   // TODO: Write current waveform to LCD ("Sine")
+  init_LCD();
+      lcd_command(CLEAR);
+      lcd_putstring("Sine");
+      
   delay(3000);
 
   // TODO: Enable DMA (start transfer from LUT to CCR)
