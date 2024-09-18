@@ -160,7 +160,7 @@ int main(void)
   {
 
 	// TODO: Poll ADC
-
+	  adc_value = pollADC(); // Read ADC value from potentiometer
 
 	// TODO: Get CRR
   
