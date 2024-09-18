@@ -499,7 +499,7 @@ void TIM16_IRQHandler(void)
 	HAL_TIM_IRQHandler(&htim16);
 
 	// TODO: Initialise a string to output second line on LCD
-
+	uint8_t eepromValue = read_from_address(currentAddress);
 
 	// TODO: Change LED pattern; output 0x01 if the read SPI data is incorrect
 	
