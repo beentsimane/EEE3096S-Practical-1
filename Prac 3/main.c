@@ -166,8 +166,11 @@ int main(void)
 	  CCR = ADCtoCCR(adc_value); // Convert ADC value to CCR value
   
 
-  // Update PWM value
+	// Update PWM value
 	__HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, CCR);
+
+	// Wait for delay ms
+	  HAL_Delay (period);
 
     /* USER CODE END WHILE */
 
@@ -461,7 +464,22 @@ void EXTI0_1_IRQHandler(void)
 {
 	// TODO: Add code to switch LED7 delay frequency
 	
-  
+	uint32_t currentTime = HAL_GetTick();
+	       // Check if button is pressed and debounce time(100ms)  has passed
+	      if (LL_GPIO_IsInputPinSet(GPIOA, LL_GPIO_PIN_0) && (currentTime -
+	      previoustime > 500))
+	      {
+	             // Toggle between 500 ms (2 Hz) and 1000 ms (1 Hz) period
+	      if( period== 1000-1){
+	      period= 500-1;
+	      }
+	              // Update the previous time for debounce
+	      else{
+	      period =1000-1;
+	      }
+	      previoustime = currentTime;
+	      __HAL_TIM_SET_AUTORELOAD(&htim6,period);
+	 }
 
 	HAL_GPIO_EXTI_IRQHandler(Button0_Pin); // Clear interrupt flags
 }
