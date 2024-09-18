@@ -59,7 +59,9 @@ TIM_HandleTypeDef htim16;
 /* USER CODE BEGIN PV */
 
 // TODO: Define input variables
-
+uint32_t period = 500;   // Initial frequency period (500 ms, 2 Hz)
+uint32_t previoustime = 0;
+uint32_t adc_value=0;
 
 /* USER CODE END PV */
 
