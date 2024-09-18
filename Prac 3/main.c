@@ -63,6 +63,15 @@ uint32_t period = 500;   // Initial frequency period (500 ms, 2 Hz)
 uint32_t previoustime = 0;
 uint32_t adc_value=0;
 
+static uint8_t binaryArray[6] = {
+    0b10101010,  // 170 in decimal
+    0b01010101,  // 85 in decimal
+    0b11001100,  // 204 in decimal
+    0b00110011,  // 51 in decimal
+    0b11110000,  // 240 in decimal
+    0b00001111   // 15 in decimal
+};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
